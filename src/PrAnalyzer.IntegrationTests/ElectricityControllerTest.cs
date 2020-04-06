@@ -36,14 +36,23 @@ namespace PrAnalyzer.IntegrationTests
                 decimal lastCost)
             {
                 var products = await Get<IEnumerable<ProductDto>>(GetProducts(consumption));
+
                 Assert.NotNull(products);
+
                 Assert.NotEmpty(products);
+
                 Assert.Equal(2, products.Count());
+
                 var firstProduct = products.FirstOrDefault();
+
                 var lastProduct = products.LastOrDefault();
+
                 Assert.Equal(firstName, firstProduct.Name);
+
                 Assert.Equal(firstCost, firstProduct.AnnualCosts);
+
                 Assert.Equal(lastName, lastProduct.Name);
+
                 Assert.Equal(lastCost, lastProduct.AnnualCosts);
             }
         }

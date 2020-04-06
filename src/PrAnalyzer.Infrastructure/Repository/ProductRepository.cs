@@ -11,6 +11,7 @@ namespace PrAnalyzer.Infrastructure.Repository
         private List<IProduct> Products = new List<IProduct>
         {
             new Product("Basic electricity tariff", ProductType.Basic),
+
             new Product("Packaged tariff", ProductType.Package)
         };
 
