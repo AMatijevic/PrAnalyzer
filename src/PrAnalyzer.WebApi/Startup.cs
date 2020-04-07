@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using PrAnalyzer.Contracts.Interface;
 using PrAnalyzer.Core.Services;
 using PrAnalyzer.Infrastructure.Repository;
+using PrAnalyzer.WebApi.Behaviors;
 using System.Reflection;
 
 namespace PrAnalyzer.WebApi
@@ -26,6 +27,7 @@ namespace PrAnalyzer.WebApi
         {
             services.AddControllers();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggerPipelineBehavior<,>));
             services.AddScoped<ICostCalculator, CostCalculator>();
             services.AddScoped<IProductRepository, ProductRepository>();
 

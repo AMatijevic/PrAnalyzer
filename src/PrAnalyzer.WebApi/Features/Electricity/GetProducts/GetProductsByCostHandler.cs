@@ -41,7 +41,6 @@ namespace PrAnalyzer.WebApi.Features.Electricity.GetProducts
                     .OrderBy(product => product.AnnualCosts)
                     .AsEnumerable();
 
-
                 return products == null
                     ? HandlerResult.EntityNotFound<IEnumerable<ProductDto>>()
                     : HandlerResult.Ok(products);
